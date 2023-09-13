@@ -9,11 +9,11 @@ public class RagdollControl : MonoBehaviour
 
     private void Start()
     {
-        // Karakterin tüm Rigidbody ve Collider bileşenlerini toplar
+        
         rigidbodies = GetComponentsInChildren<Rigidbody>();
         colliders = GetComponentsInChildren<Collider>();
 
-        // Ragdoll başlangıçta devre dışı olacak
+        
         SetRagdollEnabled(false);
     }
 
