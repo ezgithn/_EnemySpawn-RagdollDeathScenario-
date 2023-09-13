@@ -10,13 +10,13 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        // Belirli aralıklarla düşmanları yarat
+        // Belirli aralıklarla düşmanları yaratmak için InvokeRepeating kullanıyoruz
         InvokeRepeating("SpawnEnemy", 0f, spawnInterval);
     }
 
     private void SpawnEnemy()
     {
-        // Düşmanı spawn noktasında oluştur
+        // Düşmanı spawn noktasında oluşturmak için Instantiate kullanıyoruz
         Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
     }
 }
