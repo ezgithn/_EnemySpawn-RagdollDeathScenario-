@@ -885,6 +885,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 5a49ef43a1277874b855959b3d55c693,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1617012e272e4fa44853b2d1b10bba2e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1198,6 +1203,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombiegirl W Kurniawan
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 25c372da9643ace4c9cf7217f30132f0,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e875b6443eeb47c499b561e1c41319b7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
