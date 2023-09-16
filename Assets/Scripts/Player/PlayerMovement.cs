@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     {
         HandleMovementInput();
         HandleActions();
-        RotateWithMouse();
+        // RotateWithMouse();
     }
 
     private void HandleMovementInput()
@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
         _rb.velocity = movement * moveSpeed;
 
         // Mouse hareketi..
-        RotateWithMouse();
+        // RotateWithMouse();
 
         if (movement.z > 0f)
         {
@@ -51,19 +51,19 @@ public class PlayerMovement : MonoBehaviour
     }
    
 
-    private void RotateWithMouse()
-    {
-        Vector3 mousePosition = Input.mousePosition;
-        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-
-        Vector3 lookDirection = mousePosition - transform.position;
-
-        if (lookDirection != Vector3.zero)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(lookDirection, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-        }
-    }
+    // private void RotateWithMouse()
+    // {
+    //     Vector3 mousePosition = Input.mousePosition;
+    //     mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+    //
+    //     Vector3 lookDirection = mousePosition - transform.position;
+    //
+    //     if (lookDirection != Vector3.zero)
+    //     {
+    //         Quaternion targetRotation = Quaternion.LookRotation(lookDirection, Vector3.up);
+    //         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+    //     }
+    // }
 
     private void HandleActions()
     {
