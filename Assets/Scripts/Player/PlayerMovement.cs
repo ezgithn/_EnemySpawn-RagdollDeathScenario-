@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody _rb;
@@ -10,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     
     public float moveSpeed = 5.0f;
     public float rotationSpeed = 100.0f;
+    
 
     
     private void Start()
@@ -22,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     {
         HandleMovementInput();
         HandleActions();
+        RotateWithMouse();
     }
 
     private void HandleMovementInput()
@@ -34,13 +37,9 @@ public class PlayerMovement : MonoBehaviour
 
         _rb.velocity = movement * moveSpeed;
 
-        // Karakterin yönü.
-        if (movement != Vector3.zero)
-        {
-            Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
-        }
-        
+        // Mouse hareketi..
+        RotateWithMouse();
+
         if (movement.z > 0f)
         {
             _animator.SetBool("IsRunning", true);
@@ -49,7 +48,21 @@ public class PlayerMovement : MonoBehaviour
         {
             _animator.SetBool("IsRunning", false);
         }
-        
+    }
+   
+
+    private void RotateWithMouse()
+    {
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+        Vector3 lookDirection = mousePosition - transform.position;
+
+        if (lookDirection != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(lookDirection, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        }
     }
 
     private void HandleActions()
