@@ -18,7 +18,7 @@ public class PlayerAnimControl : MonoBehaviour
     
     public void PlayRunAnimation()
     {
-        animator.SetTrigger("Run");
+        animator.SetTrigger("Run" );
     }
 
     public void PlayCrouchingAnimation()
