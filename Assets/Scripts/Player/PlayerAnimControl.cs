@@ -35,13 +35,14 @@ public class PlayerAnimControl : MonoBehaviour
     {
         animator.SetTrigger("Slash");
     }
-
-    public void PlayDeathAnimation()
+    
+    public void Die()
     {
+        // Düşmanla temas edildiğinde çağırılcak..
         animator.SetTrigger("Death");
+        // Ölüm animasyonunun tamamlanmasından sonra ragdoll'u etkinleştirmek için AnimationComplete'i kullan!!!
     }
-
-    // Animasyonların sona erip etkisiz hale geldiğini bildiren bir geri arama yöntemi!!!
+    
     public void AnimationComplete()
     {
         
