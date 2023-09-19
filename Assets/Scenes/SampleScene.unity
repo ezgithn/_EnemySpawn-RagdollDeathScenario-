@@ -1174,7 +1174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 100
-  player: {fileID: 0}
+  player: {fileID: 832575519}
   mainCamera: {fileID: 330585548}
 --- !u!1 &1573879407
 GameObject:
