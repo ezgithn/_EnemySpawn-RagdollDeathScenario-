@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     private Animator _animator;
     
     public float moveSpeed = 5.0f;
-    public float rotationSpeed = 100.0f;
     
     
     
@@ -24,13 +23,12 @@ public class PlayerMovement : MonoBehaviour
     {
         HandleMovementInput();
         HandleActions();
-        // RotateWithMouse();
     }
     
     private void HandleMovementInput()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        var horizontalInput = Input.GetAxis("Horizontal");
+        var verticalInput = Input.GetAxis("Vertical");
     
         Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput);
         movement.Normalize();
@@ -39,9 +37,6 @@ public class PlayerMovement : MonoBehaviour
     
         Vector3 newPosition = transform.position + movement * moveSpeed * Time.deltaTime;
         _rb.MovePosition(newPosition);
-        
-        // Mouse hareketi..
-        // RotateWithMouse();
     
         if (movement.z > 0f)
         {
@@ -52,21 +47,6 @@ public class PlayerMovement : MonoBehaviour
             _animator.SetBool("IsRunning", false);
         }
     }
-    
-    
-    // private void RotateWithMouse()
-    // {
-    //     Vector3 mousePosition = Input.mousePosition;
-    //     mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-    //
-    //     Vector3 lookDirection = mousePosition - transform.position;
-    //
-    //     if (lookDirection != Vector3.zero)
-    //     {
-    //         Quaternion targetRotation = Quaternion.LookRotation(lookDirection, Vector3.up);
-    //         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-    //     }
-    // }
     
     private void HandleActions()
     {
