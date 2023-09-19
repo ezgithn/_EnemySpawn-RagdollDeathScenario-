@@ -338,7 +338,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1306100706}
-  mainCamera: {fileID: 330585548}
+  distance: 5
+  height: 2
+  rotationDamping: 3
+  positionX: 153
+  positionY: 15
+  positionZ: -10
+  rotationX: 35
+  rotationY: -32
+  rotationZ: 0
 --- !u!1 &352380571
 GameObject:
   m_ObjectHideFlags: 0
