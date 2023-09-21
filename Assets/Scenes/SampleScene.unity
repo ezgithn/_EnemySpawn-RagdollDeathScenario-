@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1306100706}
-  offset: {x: 7, y: 8, z: -11}
+  offset: {x: 6.5, y: 7.3, z: -12}
   smoothSpeed: 5
 --- !u!1 &352380571
 GameObject:
@@ -1244,6 +1244,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f0c4eb5278c3b43b010da452e57047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 100
+  playerCamera: {fileID: 330585548}
 --- !u!1 &1573879407
 GameObject:
   m_ObjectHideFlags: 0
