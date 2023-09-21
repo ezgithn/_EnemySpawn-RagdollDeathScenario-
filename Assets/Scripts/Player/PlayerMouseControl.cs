@@ -6,11 +6,9 @@ using UnityEngine;
 public class PlayerMouseControl : MonoBehaviour
 {
     public float rotationSpeed = 100f;
-    public Transform player; 
-    public Camera mainCamera;
     
-    
-    
+    [SerializeField] public Camera playerCamera; 
+
     private void Update()
     {
         RotateCharacterWithMouse();
@@ -19,16 +17,15 @@ public class PlayerMouseControl : MonoBehaviour
     private void RotateCharacterWithMouse()
     {
         Vector3 mousePosition = Input.mousePosition;
-        var position = player.position;
-        // mousePosition = mainCamera.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, position.y)); ???
-
-        Vector3 lookDirection = mousePosition - position;
-        lookDirection.y = 0f; 
+        var position = transform.position;
+        Vector3 worldMousePosition = playerCamera.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, position.y));
+        Vector3 lookDirection = worldMousePosition - position;
+        lookDirection.y = 0;
 
         if (lookDirection != Vector3.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
-            player.rotation = Quaternion.RotateTowards(player.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
     }
 }
