@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator _animator;
     
     public float moveSpeed = 5.0f;
+    private float IsGrounded;
     
     
     
@@ -37,14 +38,19 @@ public class PlayerMovement : MonoBehaviour
     
         Vector3 newPosition = transform.position + movement * moveSpeed * Time.deltaTime;
         _rb.MovePosition(newPosition);
-    
-        if (movement.z > 0f)
+        
+        if (movement.x > 0f || movement.x < 0f || movement.z > 0f || movement.z < 0f)
         {
-            _animator.SetBool("IsRunning", true);
+            transform.rotation = Quaternion.LookRotation(movement);
+        }
+    
+        if (movement.z > 0f && !Input.GetKey(KeyCode.UpArrow))
+        {
+            _animator.SetBool("isRunning", true);
         }
         else
         {
-            _animator.SetBool("IsRunning", false);
+            _animator.SetBool("isRunning", false);
         }
     }
     
