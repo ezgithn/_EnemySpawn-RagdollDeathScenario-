@@ -337,6 +337,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37414e13778db3a429c38e89fc2c7d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 1306100706}
+  offset: {x: 7, y: 8, z: -11}
+  smoothSpeed: 5
 --- !u!1 &352380571
 GameObject:
   m_ObjectHideFlags: 0
@@ -1073,10 +1076,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1452839946}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b0589a4973f5221479b03b0aaa7a4128,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1452839949}
   m_SourcePrefab: {fileID: 100100000, guid: b0589a4973f5221479b03b0aaa7a4128, type: 3}
 --- !u!4 &1306100706 stripped
 Transform:
@@ -1159,21 +1158,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.013104349, y: 1.01, z: -0.005256027}
---- !u!114 &1452839949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1452839943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58f0c4eb5278c3b43b010da452e57047, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 100
-  player: {fileID: 832575519}
-  mainCamera: {fileID: 330585548}
 --- !u!1 &1573879407
 GameObject:
   m_ObjectHideFlags: 0

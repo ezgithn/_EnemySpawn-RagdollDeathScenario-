@@ -20,7 +20,7 @@ public class PlayerMouseControl : MonoBehaviour
     {
         Vector3 mousePosition = Input.mousePosition;
         var position = player.position;
-        // mousePosition = mainCamera.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, position.y));
+        // mousePosition = mainCamera.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, position.y)); ???
 
         Vector3 lookDirection = mousePosition - position;
         lookDirection.y = 0f; 
