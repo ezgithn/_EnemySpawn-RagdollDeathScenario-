@@ -2,24 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab;
-    public Transform spawnPoint;
-    public float spawnInterval = 2f;
+	public GameObject enemyPrefab;
+	public Transform playerTransform;
+	public float spawnInterval = 5f;
+	public float spawnRadius = 10f;
 
-    private void Start()
-    {
-        // Belirli aralıklarla düşmanları yaratmak için InvokeRepeating kullanıyoruz..
-        InvokeRepeating("SpawnEnemy", 0f, spawnInterval);
-    }
+	private void Start()
+	{
+		InvokeRepeating(nameof(SpawnEnemy), 0f, spawnInterval);
+	}
 
-    private void SpawnEnemy()
-    {
-        // Düşmanı spawn noktasında oluşturmak için Instantiate kullanıyoruz..
-        Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
-    }
+	private void SpawnEnemy()
+	{
+		Vector3 randomSpawnPos = playerTransform.position + Random.insideUnitSphere * spawnRadius;
+		randomSpawnPos.y = 0f;
+
+		Instantiate(enemyPrefab, randomSpawnPos, Quaternion.identity);
+	}
     
+	
   //   
   //   private Camera _camera;
   //

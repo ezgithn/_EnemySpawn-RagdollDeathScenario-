@@ -6,17 +6,31 @@ using UnityEngine.AI;
 
 public class EnemyControl : MonoBehaviour
 {
-    private Transform player;
-    private NavMeshAgent navMeshAgent;
+    // private Transform player;
+    // private NavMeshAgent navMeshAgent;
+    //
+    // private void Start()
+    // {
+    //     player = GameObject.FindGameObjectWithTag("Player").transform;
+    //     navMeshAgent = GetComponent<NavMeshAgent>();
+    // }
+    //
+    // private void Update()
+    // {
+    //     navMeshAgent.SetDestination(player.position); // Düşmanı karakterin konumuna doğru hareket ettiğimiz için NavMeshAgent kullanıyoruz!!!
+    // }
+    
+    public Transform playerTransform;
+    private NavMeshAgent _navMeshAgent;
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        _navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     private void Update()
     {
-        navMeshAgent.SetDestination(player.position); // Düşmanı karakterin konumuna doğru hareket ettiğimiz için NavMeshAgent kullanıyoruz!!!
+        _navMeshAgent.SetDestination(playerTransform.position);
     }
+    
 }
