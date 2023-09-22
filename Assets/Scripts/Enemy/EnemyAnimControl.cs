@@ -22,4 +22,7 @@ public class EnemyAnimControl : MonoBehaviour
             _ragdollController.SetRagdollEnabled(true);
         }
     }
+    
+    
+    
 }
