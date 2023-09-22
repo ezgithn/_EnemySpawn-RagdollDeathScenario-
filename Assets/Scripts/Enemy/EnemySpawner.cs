@@ -7,21 +7,50 @@ public class EnemySpawner : MonoBehaviour
 {
 	public GameObject enemyPrefab;
 	public Transform playerTransform;
-	public float spawnInterval = 5f;
-	public float spawnRadius = 10f;
+	public float spawnInterval;
+	public float spawnRadius;
+	public float maxSpeed = 5.0f;
+	
+	[SerializeField]
+	public float minX;
+	public float maxX;
+	public float minZ;
+	public float maxZ;
 
 	private void Start()
 	{
-		InvokeRepeating(nameof(SpawnEnemy), 0f, spawnInterval);
+		InvokeRepeating(nameof(SpawnEnemy), 4f, spawnInterval);
+		GetRandomSpawnPosition();
 	}
 
 	private void SpawnEnemy()
 	{
 		Vector3 randomSpawnPos = playerTransform.position + Random.insideUnitSphere * spawnRadius;
-		randomSpawnPos.y = 0f;
+		randomSpawnPos.y = 4f;
 
 		Instantiate(enemyPrefab, randomSpawnPos, Quaternion.identity);
 	}
+	
+	
+	private void GetRandomSpawnPosition()
+	{
+		Vector3 randomSpawnPos = Vector3.zero;
+		RaycastHit hit;
+		
+		float raycastHeight = 2f;
+		Ray ray = new Ray(new Vector3(Random.Range(minX, maxX), raycastHeight, Random.Range(minZ, maxZ)), Vector3.down);
+
+		if (Physics.Raycast(ray, out hit))
+		{
+			randomSpawnPos = hit.point;
+		}
+	}
+	
+	
+
+	
+	
+	
     
 	
   //   
