@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class EnemyAnimControl : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Animator _animator;
+    private RagdollController _ragdollController;
+
+    private void Start()
     {
-        
+        _animator = GetComponent<Animator>();
+        _ragdollController = GetComponent<RagdollController>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
         
+        if (collision.gameObject.CompareTag("Player")) //Karaktere çarpışma algılandığında Ragdoll'u etkinleştirmek için RagdollController!!!
+        {
+            _animator.enabled = false;
+            _ragdollController.SetRagdollEnabled(true);
+        }
     }
 }

@@ -17,7 +17,6 @@ public class EnemyControl : MonoBehaviour
 
     private void Update()
     {
-        // Düşmanı karakterin konumuna doğru hareket ettiğimiz için NavMeshAgent kullanıyoruz!!!
-        navMeshAgent.SetDestination(player.position);
+        navMeshAgent.SetDestination(player.position); // Düşmanı karakterin konumuna doğru hareket ettiğimiz için NavMeshAgent kullanıyoruz!!!
     }
 }

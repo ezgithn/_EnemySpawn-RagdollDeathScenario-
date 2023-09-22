@@ -1262,6 +1262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ad7308029565640b538e99e2b590a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dustParticleSystem1: {fileID: 1898605141}
+  dustParticleSystem2: {fileID: 1957076448}
 --- !u!1 &1573879407
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,6 +1574,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1898605138}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &1898605141 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6631972383727997951, guid: 4a3d146542e9bbd498f3bdb815ce801e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1898605138}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1921541373
 GameObject:
   m_ObjectHideFlags: 0
@@ -1769,6 +1777,12 @@ PrefabInstance:
 --- !u!4 &1957076446 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3532961219631645287, guid: 4a3d146542e9bbd498f3bdb815ce801e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1957076445}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1957076448 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6631972383727997951, guid: 4a3d146542e9bbd498f3bdb815ce801e,
     type: 3}
   m_PrefabInstance: {fileID: 1957076445}
   m_PrefabAsset: {fileID: 0}
