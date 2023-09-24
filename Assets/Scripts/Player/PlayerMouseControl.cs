@@ -6,13 +6,13 @@ public class PlayerMouseControl : MonoBehaviour
 {
     public float rotationSpeed = 100f;
     
-    [SerializeField] private Camera playerCamera; 
+    [SerializeField] 
+    private Camera playerCamera; 
 
     
     void Start()
     {
         playerCamera = Camera.main;
-        
     }
     
     private void Update()

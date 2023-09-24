@@ -1273,7 +1273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dce9442c4363b145a68d53587084d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 237454178}
+  playerTransform: {fileID: 1306100706}
   maxSpeed: 3
   moveSpeed: 5
   horizontalInput: 5
@@ -1291,7 +1291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _matchInstance: {fileID: 0}
-  _player: {fileID: 237454177}
+  _player: {fileID: 1452839943}
 --- !u!1001 &1306100705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1699,7 +1699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dce9442c4363b145a68d53587084d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 237454178}
+  playerTransform: {fileID: 1306100706}
   maxSpeed: 3
   moveSpeed: 5
   horizontalInput: 4
@@ -1717,7 +1717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _matchInstance: {fileID: 0}
-  _player: {fileID: 237454177}
+  _player: {fileID: 1452839943}
 --- !u!1 &1792585043
 GameObject:
   m_ObjectHideFlags: 0

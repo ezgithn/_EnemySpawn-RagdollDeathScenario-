@@ -7,8 +7,9 @@ namespace Enemy
     [CreateAssetMenu]
     public class EnemySpawnData : ScriptableObject
     {
-        [SerializeField] private SpawnEntry[] _entries;
-        public SpawnEntry[] Entries => _entries;
+        [SerializeField] 
+        private SpawnEntry[] _entries;
+        public IEnumerable<SpawnEntry> Entries => _entries;
 
         public bool TryGetEntryByTime(float time, out SpawnEntry spawnEntry)
         {
@@ -37,13 +38,16 @@ namespace Enemy
     [System.Serializable]
     public struct SpawnEntry
     {
-        [SerializeField] private int _duration;
+        [SerializeField] 
+        private int _duration;
         public int Duration => _duration;
 
-        [SerializeField] private GameObject[] _prefabs;
+        [SerializeField] 
+        private GameObject[] _prefabs;
         public GameObject[] Prefabs => _prefabs;
 
-        [SerializeField] private int _spawnCount;
+        [SerializeField] 
+        private int _spawnCount;
         public int SpawnCount => _spawnCount;
     }
 }

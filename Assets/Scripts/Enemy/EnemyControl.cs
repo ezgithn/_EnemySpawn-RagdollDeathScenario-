@@ -18,8 +18,22 @@ public class EnemyControl : MonoBehaviour
 
     private void Start()
     {
-        _rigidbody = GetComponent<Rigidbody>();
-        // _navMeshAgent = GetComponent<NavMeshAgent>();
+        // _rigidbody = GetComponent<Rigidbody>();
+        _navMeshAgent = GetComponent<NavMeshAgent>();
+        if (playerTransform != null)
+        {
+            SetTarget(playerTransform);
+        }
+    }
+    
+    public void SetTarget(Transform target)
+    {
+        target = playerTransform;
+
+        if (_navMeshAgent != null && target != null)
+        {
+            _navMeshAgent.SetDestination(target.position);
+        }
     }
 
     private void Update()

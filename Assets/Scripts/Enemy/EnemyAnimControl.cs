@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyAnimControl : MonoBehaviour
 {
+    [SerializeField]
     private Animator _animator;
     private RagdollController _ragdollController;
 
@@ -11,6 +12,16 @@ public class EnemyAnimControl : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _ragdollController = GetComponent<RagdollController>();
+        PlayAnimation();
+    }
+    
+    public void PlayAnimation()
+    {
+        _animator.SetTrigger("Walk");
+    }
+    public void SetRagdollEnabled(bool b)
+    {
+        _ragdollController.SetRagdollEnabled(b);
     }
 
     private void OnCollisionEnter(Collision collision)

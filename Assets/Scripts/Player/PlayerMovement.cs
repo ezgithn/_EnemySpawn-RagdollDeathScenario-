@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(movement);
         }
     
-        if (movement.z > 0f && !Input.GetKey(KeyCode.UpArrow))
+        if (movement.z > 0f)
         {
             _animator.SetBool("IsRunning", true);
         }
