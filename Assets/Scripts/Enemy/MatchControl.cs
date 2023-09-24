@@ -1,18 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using Enemy;
 using UnityEngine;
 
-public class MatchControl : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+namespace Enemy
+{
+    public class MatchControl : MonoBehaviour
     {
+        [SerializeField]
+        private MatchInstance _matchInstance;
+
+        [SerializeField]
+        private GameObject _player;
+
+        private void Awake()
+        {
+            _matchInstance.Reset();
+            _matchInstance.Player = _player;
+        }
         
+        private void Update()
+        {
+            _matchInstance.AddTime(Time.deltaTime);
+        }
     }
+ 
 }

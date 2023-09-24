@@ -38,5 +38,9 @@ public class Camera : MonoBehaviour
         throw new System.NotImplementedException();
     }
     //
-    
+
+    public Ray ViewportPointToRay(Vector3 viewportPoint)
+    {
+        throw new System.NotImplementedException();
+    }
 }

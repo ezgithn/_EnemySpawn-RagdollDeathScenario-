@@ -18,8 +18,8 @@ public class EnemyControl : MonoBehaviour
 
     private void Start()
     {
-        // _rigidbody = GetComponent<Rigidbody>();
-        _navMeshAgent = GetComponent<NavMeshAgent>();
+        _rigidbody = GetComponent<Rigidbody>();
+        // _navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     private void Update()

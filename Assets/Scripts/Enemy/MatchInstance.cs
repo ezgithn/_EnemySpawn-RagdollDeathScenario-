@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MatchInstance : MonoBehaviour
+namespace Enemy
 {
-    // Start is called before the first frame update
-    void Start()
+    [CreateAssetMenu(menuName = "MatchInstance")]
+    public class MatchInstance : ScriptableObject
     {
-        
-    }
+        public float Time { get; private set; }
+        public GameObject Player { get; set; }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void AddTime(float delta)
+        {
+            Time += delta;
+        }
+
+        public void Reset()
+        {
+            Time = 0;
+        }
     }
 }
+

@@ -2,17 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawnData : MonoBehaviour
+namespace Enemy
 {
-    // Start is called before the first frame update
-    void Start()
+    [CreateAssetMenu]
+    public class EnemySpawnData : ScriptableObject
     {
-        
+        [SerializeField] private SpawnEntry[] _entries;
+        public SpawnEntry[] Entries => _entries;
+
+        public bool TryGetEntryByTime(float time, out SpawnEntry spawnEntry)
+        {
+            float totalTime = 0;
+			
+            foreach (var entry in _entries)
+            {
+
+                totalTime += entry.Duration;
+				
+                if (totalTime > time)
+                {
+                    spawnEntry = entry;
+                    return true;
+                }
+
+                var x = new SpawnEntry();
+                var y = x;
+            }
+
+            spawnEntry = new SpawnEntry();
+            return false;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    [System.Serializable]
+    public struct SpawnEntry
     {
-        
+        [SerializeField] private int _duration;
+        public int Duration => _duration;
+
+        [SerializeField] private GameObject[] _prefabs;
+        public GameObject[] Prefabs => _prefabs;
+
+        [SerializeField] private int _spawnCount;
+        public int SpawnCount => _spawnCount;
     }
 }
