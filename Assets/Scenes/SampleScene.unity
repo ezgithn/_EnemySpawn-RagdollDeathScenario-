@@ -181,7 +181,7 @@ Transform:
   m_GameObject: {fileID: 158478789}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 146.19, y: 2, z: 2.8}
+  m_LocalPosition: {x: 146.19, y: 2, z: 3.02}
   m_LocalScale: {x: 2, y: 5, z: 50.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1126,7 +1126,7 @@ Transform:
   m_GameObject: {fileID: 1164073685}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 190.86, y: 2, z: 26.9}
+  m_LocalPosition: {x: 190.63, y: 2, z: 26.9}
   m_LocalScale: {x: 2, y: 5, z: 91.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1273,7 +1273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dce9442c4363b145a68d53587084d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 1306100706}
+  playerTransform: {fileID: 237454178}
   maxSpeed: 3
   moveSpeed: 5
   horizontalInput: 5
@@ -1699,7 +1699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dce9442c4363b145a68d53587084d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 1306100706}
+  playerTransform: {fileID: 237454178}
   maxSpeed: 3
   moveSpeed: 5
   horizontalInput: 4

@@ -5,11 +5,21 @@ using UnityEngine;
 public class PlayerAnimControl : MonoBehaviour
 {
     private Animator animator;
+    private static readonly int Direction = Animator.StringToHash("Direction");
+    private static readonly int Speed = Animator.StringToHash("Speed");
 
     private void Start()
     {
         animator = GetComponent<Animator>();
     }
+    
+    private void Update()
+    {
+        var transformedVelocity = Quaternion.Euler(0, -transform.eulerAngles.y,0) * GetComponent<Rigidbody>().velocity;
+        animator.SetTrigger("Run");
+        animator.SetFloat(Direction, transformedVelocity.x);
+    }
+
     
     public void PlayIdleAnimation()
     {
