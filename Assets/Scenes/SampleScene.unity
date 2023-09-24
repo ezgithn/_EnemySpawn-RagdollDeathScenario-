@@ -888,8 +888,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1214653626}
   playerTransform: {fileID: 1306100706}
-  spawnInterval: 3
-  spawnRadius: 6
+  spawnInterval: 1
+  spawnRadius: 1
   maxSpeed: 5
   minX: -62
   maxX: 52
