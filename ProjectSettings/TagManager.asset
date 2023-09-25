@@ -9,6 +9,8 @@ TagManager:
   - Enemy2
   - Ground
   - SpawnPoints
+  - Enemy
+  - TargetPoint
   layers:
   - Default
   - TransparentFX

@@ -12,7 +12,6 @@ public class EnemyGirlSpawner : MonoBehaviour
     [SerializeField]
     public float spawnInterval;
     public float spawnRadius;
-    public float maxSpeed = 5.0f;
    
     [SerializeField]
     public float minX;

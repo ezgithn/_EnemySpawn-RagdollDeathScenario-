@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(movement);
             _animator.SetTrigger("Run");
+            //RotateCharacterWithMouse();
         }
     
         if (movement.z > 0f)    
@@ -56,6 +57,8 @@ public class PlayerMovement : MonoBehaviour
         {
             _animator.SetBool("IsRunning", false);
         }
+        
+        _rb.velocity = Vector3.zero;
     }
     
     private void HandleActions()
