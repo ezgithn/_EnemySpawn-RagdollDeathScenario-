@@ -1634,8 +1634,8 @@ MonoBehaviour:
   playerTransform: {fileID: 1306100706}
   spawnPoints: []
   randomSpawnPos: {x: 125, y: 0, z: 63}
-  spawnInterval: 2
-  spawnRadius: 6
+  spawnInterval: 30
+  spawnRadius: 1
   minX: -105
   maxX: 45
   minZ: -60
@@ -2067,8 +2067,8 @@ MonoBehaviour:
   playerTransform: {fileID: 1306100706}
   spawnPoints: []
   randomSpawnPos: {x: 176, y: 0, z: 72}
-  spawnInterval: 2
-  spawnRadius: 6
+  spawnInterval: 30
+  spawnRadius: 1
   minX: -120
   maxX: 50
   minZ: -70
@@ -2492,7 +2492,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1947563347
 Transform:
   m_ObjectHideFlags: 0

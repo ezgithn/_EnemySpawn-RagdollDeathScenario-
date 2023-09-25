@@ -32,7 +32,7 @@ public class EnemyGirlSpawner : MonoBehaviour
          Vector3 randomSpawnPos = playerTransform.position + Random.insideUnitSphere * spawnRadius;
          randomSpawnPos.y = 5f;
         
-        for (int i = 0; i < numberOfEnemies; i++)
+        for (int i = 0; i < 15; i++)
         {
             Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
             Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);

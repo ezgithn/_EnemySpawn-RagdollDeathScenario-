@@ -47,8 +47,8 @@ using UnityEngineRandom = UnityEngine.Random;
 	  Vector3 randomSpawnPos = playerTransform.position + Random.insideUnitSphere * spawnRadius;
 	  randomSpawnPos.y = 5f;
 	 
-	 foreach (GameObject Enemy in enemyPool)
-	 {
+	  for (int i = 0; i < 20; i++)
+	 
 		 foreach (GameObject enemy in enemyPool)
 		 {
 			 if (!enemy.activeInHierarchy)
@@ -56,11 +56,10 @@ using UnityEngineRandom = UnityEngine.Random;
 				 Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
 				 enemy.transform.position = spawnPoint.position;
 				 enemy.SetActive(true);
-				 
-				 break;
+					
+				 break; 
 			 }
 		 }
-	 }
 	 
 	 Instantiate(enemyPrefab, randomSpawnPos, Quaternion.identity);
     }
