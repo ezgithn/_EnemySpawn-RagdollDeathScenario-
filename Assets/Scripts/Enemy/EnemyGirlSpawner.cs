@@ -5,7 +5,11 @@ using UnityEngine;
 public class EnemyGirlSpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
+    public int numberOfEnemies;
     public Transform playerTransform;
+    public Transform[] spawnPoints;
+    
+    [SerializeField]
     public float spawnInterval;
     public float spawnRadius;
     public float maxSpeed = 5.0f;
@@ -25,10 +29,16 @@ public class EnemyGirlSpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        Vector3 randomSpawnPos = playerTransform.position + Random.insideUnitSphere * spawnRadius;
-        randomSpawnPos.y = 5f;
+        // Vector3 randomSpawnPos = playerTransform.position + Random.insideUnitSphere * spawnRadius;
+        // randomSpawnPos.y = 20f;
+        
+        for (int i = 0; i < numberOfEnemies; i++)
+        {
+            Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+            Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
+        }
 
-        Instantiate(enemyPrefab, randomSpawnPos, Quaternion.identity);
+        // Instantiate(enemyPrefab, randomSpawnPos, Quaternion.identity);
     }
 	
 	
@@ -44,7 +54,6 @@ public class EnemyGirlSpawner : MonoBehaviour
         {
             randomSpawnPos = hit.point;
         }
-        
         
     }
     

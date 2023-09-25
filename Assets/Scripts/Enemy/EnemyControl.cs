@@ -20,6 +20,7 @@ public class EnemyControl : MonoBehaviour
     {
         // _rigidbody = GetComponent<Rigidbody>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         if (playerTransform != null)
         {
             SetTarget(playerTransform);
@@ -32,11 +33,11 @@ public class EnemyControl : MonoBehaviour
 
         if (_navMeshAgent != null && target != null)
         {
-            _navMeshAgent.SetDestination(target.position);
+            _navMeshAgent.SetDestination(playerTransform.position);
         }
     }
 
-    private void Update()
+    public void Update()
     {
         _navMeshAgent.SetDestination(playerTransform.position);
         

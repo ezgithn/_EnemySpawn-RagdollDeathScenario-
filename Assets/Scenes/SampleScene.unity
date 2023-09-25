@@ -1257,10 +1257,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3ad57ca3fa2734b806a923d43788bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _matchInstance: {fileID: 0}
-  _enemySpawnData: {fileID: 0}
-  _offset: 5
-  _spawnRate: 3
+  enemyPrefab: {fileID: 1214653626}
+  numberOfEnemies: 20
+  playerTransform: {fileID: 1306100706}
+  spawnPoints: []
+  spawnInterval: 1
+  spawnRadius: 4
+  maxSpeed: 4
+  minX: -105
+  maxX: 45
+  minZ: -60
+  maxZ: 100
 --- !u!114 &1214653632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1285,7 +1292,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1214653626}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b7ff7ee32d416943b96fc733da0d55c, type: 3}
   m_Name: 
@@ -1537,7 +1544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee5a16f7a48eb55489b1fbe039c70b3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 25
+  moveSpeed: 20
 --- !u!136 &1452839948
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1679,9 +1686,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 182178074}
+  numberOfEnemies: 15
   playerTransform: {fileID: 1306100706}
-  spawnInterval: 4
-  spawnRadius: 6
+  spawnPoints: []
+  spawnInterval: 2
+  spawnRadius: 3
   maxSpeed: 5
   minX: -120
   maxX: 50
@@ -1711,13 +1720,44 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182178074}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b7ff7ee32d416943b96fc733da0d55c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _matchInstance: {fileID: 0}
   _player: {fileID: 1452839943}
+--- !u!1 &1762623173
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1762623174}
+  m_Layer: 0
+  m_Name: SpawnPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1762623174
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762623173}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1792585043
 GameObject:
   m_ObjectHideFlags: 0
@@ -2331,3 +2371,4 @@ SceneRoots:
   - {fileID: 1171442987}
   - {fileID: 352380575}
   - {fileID: 1472577332}
+  - {fileID: 1762623174}
