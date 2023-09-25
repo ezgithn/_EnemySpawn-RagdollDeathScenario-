@@ -8,6 +8,7 @@ public class EnemyGirlSpawner : MonoBehaviour
     public int numberOfEnemies;
     public Transform playerTransform;
     public Transform[] spawnPoints;
+    public Vector3 randomSpawnPos;
     
     [SerializeField]
     public float spawnInterval;
@@ -28,8 +29,8 @@ public class EnemyGirlSpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        // Vector3 randomSpawnPos = playerTransform.position + Random.insideUnitSphere * spawnRadius;
-        // randomSpawnPos.y = 20f;
+         Vector3 randomSpawnPos = playerTransform.position + Random.insideUnitSphere * spawnRadius;
+         randomSpawnPos.y = 5f;
         
         for (int i = 0; i < numberOfEnemies; i++)
         {
@@ -37,7 +38,7 @@ public class EnemyGirlSpawner : MonoBehaviour
             Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
         }
 
-        // Instantiate(enemyPrefab, randomSpawnPos, Quaternion.identity);
+        Instantiate(enemyPrefab, randomSpawnPos, Quaternion.identity);
     }
 	
 	

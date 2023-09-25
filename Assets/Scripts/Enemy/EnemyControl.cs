@@ -21,7 +21,6 @@ public class EnemyControl : MonoBehaviour
 
     private void Start()
     {
-        // _rigidbody = GetComponent<Rigidbody>();
         _rigidbody = GetComponent<Rigidbody>();
         // playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         // if (playerTransform != null)
@@ -48,7 +47,7 @@ public class EnemyControl : MonoBehaviour
     
     public void SetTarget(Transform target)
     {
-        target = playerTransform;
+        target = targetPoint;
 
         if (_rigidbody != null && target != null)
         {
@@ -57,6 +56,7 @@ public class EnemyControl : MonoBehaviour
             _rigidbody.velocity = target.position * moveSpeed;
         }
     }
+    
 
     public void Update()
     {

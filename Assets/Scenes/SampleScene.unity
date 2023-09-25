@@ -1630,12 +1630,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1214653626}
-  numberOfEnemies: 20
+  numberOfEnemies: 2
   playerTransform: {fileID: 1306100706}
   spawnPoints: []
+  randomSpawnPos: {x: 125, y: 0, z: 63}
   spawnInterval: 2
   spawnRadius: 6
-  maxSpeed: 8
   minX: -105
   maxX: 45
   minZ: -60
@@ -2063,12 +2063,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 182178074}
-  numberOfEnemies: 30
+  numberOfEnemies: 2
   playerTransform: {fileID: 1306100706}
   spawnPoints: []
+  randomSpawnPos: {x: 176, y: 0, z: 72}
   spawnInterval: 2
   spawnRadius: 6
-  maxSpeed: 8
   minX: -120
   maxX: 50
   minZ: -70
@@ -2502,7 +2502,7 @@ Transform:
   m_GameObject: {fileID: 1947563346}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 176.1, y: 0, z: 21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

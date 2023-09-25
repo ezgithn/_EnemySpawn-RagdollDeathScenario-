@@ -11,6 +11,7 @@ using UnityEngineRandom = UnityEngine.Random;
 	public int numberOfEnemies;
     public Transform playerTransform;
     public Transform[] spawnPoints;
+    public Vector3 randomSpawnPos;
     
     [SerializeField]
     public float spawnInterval;
@@ -28,7 +29,7 @@ using UnityEngineRandom = UnityEngine.Random;
     private void Start()
     {
 	 InvokeRepeating(nameof(SpawnEnemy), 5f, spawnInterval);
-	 // GetRandomSpawnPosition();
+	  GetRandomSpawnPosition();
 	
     }
     
@@ -43,8 +44,8 @@ using UnityEngineRandom = UnityEngine.Random;
 
     private void SpawnEnemy()
     {
-	 // Vector3 randomSpawnPos = playerTransform.position + Random.insideUnitSphere * spawnRadius;
-	 // randomSpawnPos.y = 30f;
+	  Vector3 randomSpawnPos = playerTransform.position + Random.insideUnitSphere * spawnRadius;
+	  randomSpawnPos.y = 5f;
 	 
 	 foreach (GameObject Enemy in enemyPool)
 	 {
@@ -55,31 +56,29 @@ using UnityEngineRandom = UnityEngine.Random;
 				 Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
 				 enemy.transform.position = spawnPoint.position;
 				 enemy.SetActive(true);
-
-				 // Ayarlamalar ve düşmanın karaktere doğru gitmesi burada yapılabilir.
-
+				 
 				 break;
 			 }
 		 }
 	 }
 	 
-	 // Instantiate(enemyPrefab, randomSpawnPos, Quaternion.identity);
+	 Instantiate(enemyPrefab, randomSpawnPos, Quaternion.identity);
     }
 
 
-  //   private void GetRandomSpawnPosition()
-  //   {
-	 //  Vector3 randomSpawnPos = Vector3.zero;
-	 //  RaycastHit hit;
-	 //
-	 //  float raycastHeight = 2f;
-	 //  Ray ray = new Ray(new Vector3(Random.Range(minX, maxX), raycastHeight, Random.Range(minZ, maxZ)), Vector3.down);
-  //
-	 //  if (Physics.Raycast(ray, out hit))
-	 //  {
-		// randomSpawnPos = hit.point;
-	 //  }
-  //   }
+    private void GetRandomSpawnPosition()
+    {
+	  Vector3 randomSpawnPos = Vector3.zero;
+	  RaycastHit hit;
+	 
+	  float raycastHeight = 2f;
+	  Ray ray = new Ray(new Vector3(Random.Range(minX, maxX), raycastHeight, Random.Range(minZ, maxZ)), Vector3.down);
+  
+	  if (Physics.Raycast(ray, out hit))
+	  {
+		randomSpawnPos = hit.point;
+	  }
+    }
     
     
   }
