@@ -18,6 +18,7 @@ public class PlayerAnimControl : MonoBehaviour
         var transformedVelocity = Quaternion.Euler(0, -transform.eulerAngles.y,0) * GetComponent<Rigidbody>().velocity;
         animator.SetTrigger("Run");
         animator.SetFloat(Direction, transformedVelocity.x);
+        PlayRunAnimation();
     }
 
     

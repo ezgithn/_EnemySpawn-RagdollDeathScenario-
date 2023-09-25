@@ -45,9 +45,10 @@ public class PlayerMovement : MonoBehaviour
         if (movement.x > 0f || movement.x < 0f || movement.z > 0f || movement.z < 0f)
         {
             transform.rotation = Quaternion.LookRotation(movement);
+            _animator.SetTrigger("Run");
         }
     
-        if (movement.z > 0f)
+        if (movement.z > 0f)    
         {
             _animator.SetBool("IsRunning", true);
         }
