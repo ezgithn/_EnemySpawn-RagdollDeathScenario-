@@ -34,7 +34,7 @@ using UnityEngineRandom = UnityEngine.Random;
 	 
 	 for (int i = 0; i < numberOfEnemies; i++)
 	 {
-		 Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+		 Transform spawnPoint = spawnPoints[Random.Range(1, spawnPoints.Length)];
 		 Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
 	 }
 	 
