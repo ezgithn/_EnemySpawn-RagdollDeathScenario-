@@ -11,6 +11,7 @@ TagManager:
   - SpawnPoints
   - Enemy
   - TargetPoint
+  - Sword
   layers:
   - Default
   - TransparentFX
