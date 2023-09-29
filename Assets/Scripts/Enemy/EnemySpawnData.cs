@@ -9,11 +9,17 @@ namespace Enemy
     {
         [SerializeField] 
         private SpawnEntry[] _entries;
-        public IEnumerable<SpawnEntry> Entries => _entries;
+        public IEnumerable<SpawnEntry> entries => _entries;
 
+        
+        public void Start()
+        {
+            TryGetEntryByTime(0, out var spawnEntry);
+        }
+        
         public bool TryGetEntryByTime(float time, out SpawnEntry spawnEntry)
         {
-            float totalTime = 0;
+            float totalTime = 1;
 			
             foreach (var entry in _entries)
             {
