@@ -14,7 +14,6 @@ public class EnemyCollision : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        
         if (collision.gameObject.CompareTag("Player")) // Karaktere çarpışma algılandığında Ragdoll'u etkinleştirmek için RagdollController!!!
         {
             ragdollController.SetRagdollEnabled(true);

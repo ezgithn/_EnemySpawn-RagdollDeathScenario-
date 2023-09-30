@@ -11,7 +11,7 @@ public class EnemyControl : MonoBehaviour
 
     public Transform targetPoint;
     private NavMeshAgent _navMeshAgent;
-
+    
     public float maxSpeed = 3f;
     public float moveSpeed = 5f;
     public float horizontalInput;
@@ -24,8 +24,8 @@ public class EnemyControl : MonoBehaviour
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _animator = GetComponent<Animator>();
     }
-    
     
     public void SetTarget(Transform target)
     {
@@ -41,23 +41,24 @@ public class EnemyControl : MonoBehaviour
     
     public void Update()
     {
-        MovementInput();
+        MovementInput(targetPoint.position);
         SetTarget(targetPoint);
     }
 
-    private void MovementInput()
+    private void MovementInput(Vector3 targetPoint)
     {
-        var horizontalInput = Input.GetAxis("Horizontal");
-        var verticalInput = Input.GetAxis("Vertical");
+        
+        Vector3 moveDirection = (targetPoint - transform.position).normalized;
+        float horizontalInput = moveDirection.x;
+        float verticalInput = moveDirection.z;
 
         Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput);
         movement.Normalize();
-
         Vector3 newPosition = transform.position + movement * moveSpeed * Time.deltaTime;
         
-        IsWalking = movement.magnitude > 0f;
+        IsWalking = movement.magnitude > 5f;
 
-        if (movement.x > 0f || movement.x < 0f || movement.z > 0f || movement.z < 0f)
+        if (movement.x > 5f || movement.x < 5f || movement.z > 5f || movement.z < 5f)
         {
             transform.rotation = Quaternion.LookRotation(movement);
             _animator.SetTrigger("Walk");

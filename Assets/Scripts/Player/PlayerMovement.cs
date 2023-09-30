@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     
     public float moveSpeed = 5.0f;
     private float IsGrounded;
-    public bool IsRunning { get; set; }
+    public bool IsRunning;
     
     
     
@@ -37,28 +37,33 @@ public class PlayerMovement : MonoBehaviour
     
         //_rb.velocity = movement * moveSpeed;
     
-        Vector3 newPosition = transform.position + movement * moveSpeed * Time.deltaTime;
-        _rb.MovePosition(newPosition);
+        // Vector3 newPosition = transform.position + movement * moveSpeed * Time.deltaTime;
+        // _rb.MovePosition(newPosition);
         
         IsRunning = movement.magnitude > 0f;
         
-        if (movement.x > 0f || movement.x < 0f || movement.z > 0f || movement.z < 0f)
+        if (Mathf.Abs(horizontalInput) > 0.1f || Mathf.Abs(verticalInput) > 0.1f)
         {
+            
+            
+            Vector3 newPosition = transform.position + movement * moveSpeed * Time.deltaTime;
+            _rb.MovePosition(newPosition);
+            
+            IsRunning = true;
             transform.rotation = Quaternion.LookRotation(movement);
-            _animator.SetTrigger("Run");
-            //RotateCharacterWithMouse();
-        }
-    
-        if (movement.z > 0f)    
-        {
             _animator.SetBool("IsRunning", true);
+            _animator.SetTrigger("Run");
+            
+            _animator.SetBool("IsGrounded", true);
+            _animator.SetTrigger("HighSpinAttack");
         }
         else
         {
+            IsRunning = false;
             _animator.SetBool("IsRunning", false);
+            _rb.velocity = Vector3.zero;
         }
         
-        _rb.velocity = Vector3.zero;
     }
     
     private void HandleActions()
@@ -68,12 +73,12 @@ public class PlayerMovement : MonoBehaviour
             _animator.SetTrigger("Crouch");
         }
     
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKey(KeyCode.R))
         {
             _animator.SetTrigger("Slash");
         }
     
-        if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Q))
         {
             _animator.SetTrigger("HighSpinAttack");
         }
