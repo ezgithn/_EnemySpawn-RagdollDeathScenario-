@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     {
         HandleMovementInput();
         HandleActions();
+        DeActivateMovement();
     }
     
     private void HandleMovementInput()
@@ -57,13 +58,23 @@ public class PlayerMovement : MonoBehaviour
             _animator.SetBool("IsGrounded", true);
             _animator.SetTrigger("HighSpinAttack");
         }
-        else
+        // else if(!IsRunning)
+        // {
+        //     _rb.velocity = Vector3.zero;
+        //     IsRunning = false;
+        //     _animator.SetBool("IsRunning", false);
+        //     
+        // }
+        
+    }
+    
+    void DeActivateMovement()
+    {
+        if (Vector3.Distance(transform.position, _rb.position) < 0.1f)
         {
-            IsRunning = false;
             _animator.SetBool("IsRunning", false);
             _rb.velocity = Vector3.zero;
         }
-        
     }
     
     private void HandleActions()
