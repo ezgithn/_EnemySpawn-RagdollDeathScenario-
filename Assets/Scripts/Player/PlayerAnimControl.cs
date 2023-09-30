@@ -19,6 +19,7 @@ public class PlayerAnimControl : MonoBehaviour
         animator.SetTrigger("Run");
         animator.SetFloat(Direction, transformedVelocity.x);
         PlayRunAnimation();
+        PlayHighSpinAttackAnimation();
     }
 
     

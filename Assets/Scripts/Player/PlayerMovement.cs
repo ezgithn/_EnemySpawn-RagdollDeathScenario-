@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5.0f;
     private float IsGrounded;
     public bool IsRunning;
+    public bool IsAttacking;
     
     
     
@@ -25,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     {
         HandleMovementInput();
         HandleActions();
-        DeActivateMovement();
+        //DeActivateMovement();
     }
     
     private void HandleMovementInput()
@@ -45,9 +46,7 @@ public class PlayerMovement : MonoBehaviour
         
         if (Mathf.Abs(horizontalInput) > 0.1f || Mathf.Abs(verticalInput) > 0.1f)
         {
-            
-            
-            Vector3 newPosition = transform.position + movement * moveSpeed * Time.deltaTime;
+            Vector3 newPosition = transform.position + movement * (moveSpeed * Time.deltaTime);
             _rb.MovePosition(newPosition);
             
             IsRunning = true;
@@ -55,27 +54,25 @@ public class PlayerMovement : MonoBehaviour
             _animator.SetBool("IsRunning", true);
             _animator.SetTrigger("Run");
             
-            _animator.SetBool("IsGrounded", true);
-            _animator.SetTrigger("HighSpinAttack");
         }
-        // else if(!IsRunning)
-        // {
-        //     _rb.velocity = Vector3.zero;
-        //     IsRunning = false;
-        //     _animator.SetBool("IsRunning", false);
-        //     
-        // }
+        else if(!movement.Equals(Vector3.zero))
+        {
+            _rb.velocity = Vector3.zero;
+            IsRunning = false;
+            _animator.SetBool("IsRunning", false);
+            _animator.StopPlayback();
+        }
         
     }
     
-    void DeActivateMovement()
-    {
-        if (Vector3.Distance(transform.position, _rb.position) < 0.1f)
-        {
-            _animator.SetBool("IsRunning", false);
-            _rb.velocity = Vector3.zero;
-        }
-    }
+    // void DeActivateMovement()
+    // {
+    //     if (Vector3.Distance(transform.position, _rb.position) < 0.1f)
+    //     {
+    //         _animator.SetBool("IsRunning", false);
+    //         _rb.velocity = Vector3.zero;
+    //     }
+    // }
     
     private void HandleActions()
     {
@@ -91,6 +88,8 @@ public class PlayerMovement : MonoBehaviour
     
         if (Input.GetKey(KeyCode.Q))
         {
+            IsAttacking = true;
+            _animator.SetBool("IsAttacking", true);
             _animator.SetTrigger("HighSpinAttack");
         }
     }
