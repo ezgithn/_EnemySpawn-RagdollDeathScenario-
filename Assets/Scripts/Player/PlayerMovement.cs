@@ -26,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
     {
         HandleMovementInput();
         HandleActions();
-        //DeActivateMovement();
     }
     
     private void HandleMovementInput()
@@ -36,11 +35,7 @@ public class PlayerMovement : MonoBehaviour
     
         Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput);
         movement.Normalize();
-    
-        //_rb.velocity = movement * moveSpeed;
-    
-        // Vector3 newPosition = transform.position + movement * moveSpeed * Time.deltaTime;
-        // _rb.MovePosition(newPosition);
+        _rb.velocity = movement * moveSpeed;
         
         IsRunning = movement.magnitude > 0f;
         
@@ -55,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
             _animator.SetTrigger("Run");
             
         }
-        else if(!movement.Equals(Vector3.zero))
+        else if(movement.Equals(Vector3.zero))
         {
             _rb.velocity = Vector3.zero;
             IsRunning = false;
@@ -64,15 +59,6 @@ public class PlayerMovement : MonoBehaviour
         }
         
     }
-    
-    // void DeActivateMovement()
-    // {
-    //     if (Vector3.Distance(transform.position, _rb.position) < 0.1f)
-    //     {
-    //         _animator.SetBool("IsRunning", false);
-    //         _rb.velocity = Vector3.zero;
-    //     }
-    // }
     
     private void HandleActions()
     {
@@ -86,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
             _animator.SetTrigger("Slash");
         }
     
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Q) && !IsAttacking)
         {
             IsAttacking = true;
             _animator.SetBool("IsAttacking", true);
