@@ -55,7 +55,6 @@ public class PlayerMovement : MonoBehaviour
             _rb.velocity = Vector3.zero;
             IsRunning = false;
             _animator.SetBool("IsRunning", false);
-            _animator.StopPlayback();
         }
         
     }
