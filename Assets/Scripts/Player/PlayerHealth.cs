@@ -28,7 +28,7 @@ public class PlayerHealth : MonoBehaviour
         
         if (_currentHealth <= 0)
         {
-            // Ölüm işlemleri
+            gameObject.SetActive(false);
         }
     }
 }

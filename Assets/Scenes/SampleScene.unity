@@ -7300,9 +7300,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee5a16f7a48eb55489b1fbe039c70b3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 8
   IsRunning: 0
   IsAttacking: 0
+  _swordVfx: {fileID: 809174709}
 --- !u!136 &1452839948
 CapsuleCollider:
   m_ObjectHideFlags: 0

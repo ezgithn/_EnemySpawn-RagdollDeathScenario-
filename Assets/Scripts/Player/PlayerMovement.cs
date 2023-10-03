@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private float IsGrounded;
     public bool IsRunning;
     public bool IsAttacking;
+    public ParticleSystem _swordVfx;
     
     
     
@@ -20,12 +21,14 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
+        _swordVfx.Stop();
     }
     
     private void Update()
     {
         HandleMovementInput();
         HandleActions();
+        StartCoroutine(StopAttack());
     }
     
     private void HandleMovementInput()
@@ -76,7 +79,17 @@ public class PlayerMovement : MonoBehaviour
             IsAttacking = true;
             _animator.SetBool("IsAttacking", true);
             _animator.SetTrigger("HighSpinAttack");
+            _swordVfx.Play();
+            
         }
+    }
+    
+    private IEnumerator StopAttack()
+    {
+        yield return new WaitForSeconds(1f);
+        IsAttacking = false;
+        _animator.SetBool("IsAttacking", false);
+        _swordVfx.Stop();
     }
     
    
