@@ -4,46 +4,57 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    [SerializeField]
     public int maxHealth = 3; 
     private int _currentHealth; 
     private bool _isDead;
     
-    private Rigidbody[] ragdollParts;
+    private Rigidbody[] ragdollRigidbodies;
 
     private void Start()
     {
         _currentHealth = maxHealth; 
+        ragdollRigidbodies = GetComponentsInChildren<Rigidbody>();
+        DisableRagdoll();
     }
     
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damageAmount)
     {
-        if (_isDead)
-            return;
-
-        _currentHealth -= damage;
-
-        if (_currentHealth <= 0)
+        if (_currentHealth > 0)
         {
-            Die();
+            _currentHealth -= damageAmount;
+            
+            if (_currentHealth <= 0)
+            {
+                Die();
+            }
         }
     }
 
     private void Die()
     {
         _isDead = true;
-        ActivateRagdoll();
+        EnableRagdoll();
         //Düşmanın öldükten sonra yok olması//
         
         StartCoroutine(DestroyAfterDelay(3f));
     }
     
-    private void ActivateRagdoll()
+    private void EnableRagdoll()
     {
-        ragdollParts = GetComponentsInChildren<Rigidbody>();
-        foreach (var rigidbody in ragdollParts)
+        foreach (var rigidbody in ragdollRigidbodies)
         {
             rigidbody.isKinematic = false;
             rigidbody.useGravity = true;
+        }
+    }
+    
+    private void DisableRagdoll()
+    {
+        foreach (var rigidbody in ragdollRigidbodies)
+        {
+            rigidbody.isKinematic = true;
+            rigidbody.useGravity = false;
         }
     }
     

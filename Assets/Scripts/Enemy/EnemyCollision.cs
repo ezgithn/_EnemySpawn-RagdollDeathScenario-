@@ -20,13 +20,12 @@ public class EnemyCollision : MonoBehaviour
         }
     }
     
-    
 }
 
 internal class RagdollController
 {
     public void SetRagdollEnabled(bool b)
     {
-        throw new System.NotImplementedException();
+        throw new System.NotImplementedException();  //??????
     }
 }
