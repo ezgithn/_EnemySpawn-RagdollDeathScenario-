@@ -21,6 +21,7 @@ namespace Player
             animator.SetFloat(Direction, transformedVelocity.x);
             PlayRunAnimation();
             PlayHighSpinAttackAnimation();
+            PlayIdleAnimation();
         }
     
         

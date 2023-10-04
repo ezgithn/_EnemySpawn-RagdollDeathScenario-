@@ -19,7 +19,6 @@ public class PlayerMouseControl : MonoBehaviour
     {
         RotateCharacterWithMouse();
     }
-    
 
     private void RotateCharacterWithMouse()
     {
