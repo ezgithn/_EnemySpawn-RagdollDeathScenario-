@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyCollision : MonoBehaviour
 {
     private RagdollController ragdollController;
+    private bool _isDead;
 
     private void Start()
     {
@@ -14,11 +15,20 @@ public class EnemyCollision : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (!_isDead && collision.gameObject.CompareTag("Player"))
         {
-            ragdollController.SetRagdollEnabled(true);
+            Die();
         }
     }
+
+    private void Die()
+    {
+        _isDead = true;
+        ragdollController.SetRagdollEnabled(true);
+        
+    }
+    
+    
     
 }
 
