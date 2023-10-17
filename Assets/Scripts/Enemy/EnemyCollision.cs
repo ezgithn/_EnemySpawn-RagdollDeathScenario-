@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class EnemyCollision : MonoBehaviour
 {
-    private RagdollController ragdollController;
+    private RagdollControl ragdollController;
     private bool _isDead;
 
     private void Start()
     {
-        ragdollController = GetComponent<RagdollController>();
+        // ragdollController = GetComponent<RagdollControl>();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!_isDead && collision.gameObject.CompareTag("Player"))
+        if (!_isDead && collision.gameObject.CompareTag("Sword"))
         {
             Die();
         }
@@ -25,17 +25,7 @@ public class EnemyCollision : MonoBehaviour
     {
         _isDead = true;
         ragdollController.SetRagdollEnabled(true);
-        
     }
-    
-    
     
 }
 
-internal class RagdollController
-{
-    public void SetRagdollEnabled(bool b)
-    {
-        throw new System.NotImplementedException();  //??????
-    }
-}

@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody _rb;
     private Animator _animator;
     
-    public float moveSpeed = 5.0f;
+    public float moveSpeed = 20f;
     private float IsGrounded;
     public bool IsRunning;
     public bool IsAttacking;
@@ -29,6 +29,10 @@ public class PlayerMovement : MonoBehaviour
         HandleMovementInput();
         HandleActions();
         StartCoroutine(StopAttack());
+        if (IsAttacking)
+        {
+            _rb.velocity = Vector3.zero;
+        }
     }
     
     private void HandleMovementInput()
@@ -40,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
         movement.Normalize();
         _rb.velocity = movement * moveSpeed;
         
+        Debug.Log(movement.magnitude);
         IsRunning = movement.magnitude > 0f;
         
         if (Mathf.Abs(horizontalInput) > 0.1f || Mathf.Abs(verticalInput) > 0.1f)

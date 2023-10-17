@@ -6,12 +6,12 @@ public class EnemyAnimControl : MonoBehaviour
 {
     [SerializeField]
     private Animator _animator;
-    private RagdollController _ragdollController;
+    private RagdollControl _ragdollController;
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
-        _ragdollController = GetComponent<RagdollController>();
+        _ragdollController = GetComponent<RagdollControl>();
         PlayAnimation();
     }
     

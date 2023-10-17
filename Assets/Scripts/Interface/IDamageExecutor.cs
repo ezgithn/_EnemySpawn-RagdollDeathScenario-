@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class IDamageExecutor : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static void TakeDamage(IDamageable damageable, float damage)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        damageable.TakeDamage(damage);
     }
 }

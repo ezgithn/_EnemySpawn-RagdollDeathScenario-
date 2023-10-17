@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField]
-    public int maxHealth = 3; 
+    public int maxHealth = 2; 
     private int _currentHealth; 
     private bool _isDead;
     
@@ -15,7 +15,8 @@ public class EnemyHealth : MonoBehaviour
     {
         _currentHealth = maxHealth; 
         ragdollRigidbodies = GetComponentsInChildren<Rigidbody>();
-        DisableRagdoll();
+        // DisableRagdoll();
+        // TakeDamage(int .MaxValue);
     }
     
     public void TakeDamage(int damageAmount)

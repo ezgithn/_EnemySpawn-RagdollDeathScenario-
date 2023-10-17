@@ -18,24 +18,31 @@ public class EnemyControl : MonoBehaviour
     public float verticalInput;
     private Rigidbody _rigidbody;
     private Animator _animator;
-    public bool IsWalking { get; set; }
+    public bool _isWalking { get; set; }
 
 
     private void Start()
     {
-        _rigidbody = GetComponent<Rigidbody>();
-        _animator = GetComponent<Animator>();
+        _rigidbody = GetComponent<Rigidbody>(); 
     }
     
     public void Update()
     {
-        MovementInput(targetPoint.position);
-        SetTarget(targetPoint);
+        // MovementInput(targetPoint.position);
+        // SetTarget(targetPoint);
+        
+        transform.position += transform.forward * -moveSpeed * Time.deltaTime;
+        float distance = Vector3.Distance(transform.position, targetPoint.position);
+        if (distance > 5f)
+        {
+            transform.LookAt(targetPoint);
+        }
     }
     
     public void SetTarget(Transform target)
     {
         target = targetPoint;
+        transform.LookAt(target);
 
         if (_rigidbody != null && target != null)
         {
@@ -44,8 +51,6 @@ public class EnemyControl : MonoBehaviour
             _rigidbody.velocity = target.position * moveSpeed;
         }
     }
-    
-    
 
     private void MovementInput(Vector3 targetPoint)
     {
@@ -57,9 +62,9 @@ public class EnemyControl : MonoBehaviour
         Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput);
         Vector3 newPosition = transform.position + movement * (moveSpeed * Time.deltaTime);
         
-        IsWalking = movement.magnitude > 0.1f;
+        _isWalking = movement.magnitude > 0.1f;
 
-        if (IsWalking)
+        if (_isWalking)
         {
             movement.Normalize();
             transform.rotation = Quaternion.LookRotation(movement);
@@ -67,6 +72,7 @@ public class EnemyControl : MonoBehaviour
         }
 
         _rigidbody.velocity = movement * moveSpeed;
+        
 
     }
 }

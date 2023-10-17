@@ -26,6 +26,7 @@ public class EnemySpawner : MonoBehaviour
 		
 		lastSpawnTime = Time.time;
 		InvokeRepeating(nameof(SpawnEnemy), 5f, spawnInterval);
+		// Invoke(nameof(SpawnEnemy), 5f);
 	}
 
 	private void Update()
