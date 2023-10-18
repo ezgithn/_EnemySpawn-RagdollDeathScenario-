@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     
+    // ReSharper disable Unity.PerformanceAnalysis
     private void HandleMovementInput()
     {
         var horizontalInput = Input.GetAxis("Horizontal");

@@ -52,9 +52,8 @@ namespace Player
         
         public void Die()
         {
-            // Düşmanla temas edildiğinde çağırılcak..
             animator.SetTrigger("Death");
-            // Ölüm animasyonunun tamamlanmasından sonra ragdoll'u etkinleştirmek için AnimationComplete'i kullan!!!
+            // Ölüm animasyonunun tamamlanmasından sonra ragdoll'u etkinleştirmek için AnimationComplete'i kullanıcam!!!
         }
         
         public void AnimationComplete()
