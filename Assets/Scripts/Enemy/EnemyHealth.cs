@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealth : MonoBehaviour, IDamageable
 {
     [SerializeField]
     public int maxHealth = 2; 
@@ -19,16 +19,12 @@ public class EnemyHealth : MonoBehaviour
         // TakeDamage(int .MaxValue);
     }
     
-    public void TakeDamage(int damageAmount)
+    public void TakeDamage(float damage)
     {
-        if (_currentHealth > 0)
+        _currentHealth -= (int)damage;
+        if (_currentHealth <= 0)
         {
-            _currentHealth -= damageAmount;
-            
-            if (_currentHealth <= 0)
-            {
-                Die();
-            }
+            Die();
         }
     }
 
@@ -36,7 +32,6 @@ public class EnemyHealth : MonoBehaviour
     {
         _isDead = true;
         EnableRagdoll();
-        //Düşmanın öldükten sonra yok olması//
         
         StartCoroutine(DestroyAfterDelay(3f));
     }

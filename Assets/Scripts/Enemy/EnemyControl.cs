@@ -2,13 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.PlayerLoop;
 
 
 public class EnemyControl : MonoBehaviour
 {
-    //public Transform playerTransform;
-
     public Transform targetPoint;
     //private NavMeshAgent _navMeshAgent;
     
@@ -30,7 +27,7 @@ public class EnemyControl : MonoBehaviour
     {
         MovementInput(targetPoint.position);
         SetTarget(targetPoint);
-        
+        transform.position = Vector3.MoveTowards(transform.position, targetPoint.position, 10);
        
     }
     
@@ -56,6 +53,7 @@ public class EnemyControl : MonoBehaviour
 
         Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput);
         Vector3 newPosition = transform.position + movement * (moveSpeed * Time.deltaTime);
+        
         transform.position += transform.forward * moveSpeed * Time.deltaTime;
         float distance = Vector3.Distance(transform.position, targetPoint.normalized);
         if (distance > 5f)
@@ -72,9 +70,7 @@ public class EnemyControl : MonoBehaviour
             _animator.SetTrigger("Walk");
         }
         
-
         _rigidbody.velocity = movement * moveSpeed;
-        
 
     }
 }

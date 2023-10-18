@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 5; 
+    public int maxHealth = 3; 
     private int _currentHealth; 
     public int currentHealth => _currentHealth;
     private Rigidbody[] ragdollRigidbodies;

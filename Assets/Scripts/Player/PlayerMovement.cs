@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private float IsGrounded;
     public bool IsRunning;
     public bool IsAttacking;
+    public float attackDamage;
     public ParticleSystem _swordVfx;
     
     
@@ -86,6 +87,19 @@ public class PlayerMovement : MonoBehaviour
             _animator.SetTrigger("HighSpinAttack");
             _swordVfx.Play();
             
+        }
+    }
+
+    private void Attack()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 2f))
+        {
+            IDamageable damageable = hit.collider.GetComponent<IDamageable>();
+            if (damageable != null)
+            {
+                IDamageExecutor.TakeDamage(damageable, attackDamage);
+            }
         }
     }
     

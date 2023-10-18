@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IDamageable : MonoBehaviour
+public interface IDamageable
 {
-    public void TakeDamage(float damage)
-    {
-        throw new System.NotImplementedException();
-    }
+    public void TakeDamage(float damage);
+
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
 public class EnemyCollision : MonoBehaviour
 {
     private RagdollControl ragdollController;
@@ -10,7 +11,7 @@ public class EnemyCollision : MonoBehaviour
 
     private void Start()
     {
-        // ragdollController = GetComponent<RagdollControl>();
+        _isDead = false;
     }
 
     private void OnCollisionEnter(Collision collision)
