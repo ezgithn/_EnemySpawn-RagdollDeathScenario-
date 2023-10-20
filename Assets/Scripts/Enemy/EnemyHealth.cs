@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,15 +11,21 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     private bool _isDead;
     
     private Rigidbody[] ragdollRigidbodies;
+    private RagdollControl ragdollController;
 
     private void Start()
     {
         _currentHealth = maxHealth; 
-        ragdollRigidbodies = GetComponentsInChildren<Rigidbody>();
-        // DisableRagdoll();
-        // TakeDamage(int .MaxValue);
+        // ragdollRigidbodies = GetComponentsInChildren<Rigidbody>();
+         ragdollController = GetComponent<RagdollControl>();
+        TakeDamage(int .MaxValue);
     }
-    
+
+    // public void Update()
+    // {
+    //     EnableRagdoll();
+    // }
+
     public void TakeDamage(float damage)
     {
         _currentHealth -= (int)damage;
@@ -32,6 +39,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         _isDead = true;
         EnableRagdoll();
+        // ragdollController.SetRagdollEnabled(true);
         
         StartCoroutine(DestroyAfterDelay(3f));
     }

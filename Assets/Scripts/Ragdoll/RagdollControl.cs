@@ -23,9 +23,9 @@ public class RagdollControl : MonoBehaviour
             rb.isKinematic = !isEnabled;
         }
 
-        foreach (Collider col in colliders)
+        foreach (Collider collider in colliders)
         {
-            col.enabled = isEnabled;
+            collider.enabled = isEnabled;
         }
     }
 }

@@ -46,7 +46,6 @@ public class EnemyControl : MonoBehaviour
 
     public void MovementInput(Vector3 targetPoint)
     {
-        
         Vector3 moveDirection = (targetPoint - transform.position);
         float horizontalInput = moveDirection.x;
         float verticalInput = moveDirection.z;
