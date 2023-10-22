@@ -39,6 +39,7 @@ public class PlayerHealth : MonoBehaviour
     
     private void Die()
     {
+        Debug.Log("Öldün");
         EnableRagdoll();
     }
     

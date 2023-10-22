@@ -15,6 +15,7 @@ public class EnemyAnimControl : MonoBehaviour
         PlayAnimation();
     }
     
+    
     public void PlayAnimation()
     {
         _animator.SetTrigger("Walk");

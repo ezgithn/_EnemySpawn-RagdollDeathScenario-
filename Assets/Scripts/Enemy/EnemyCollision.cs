@@ -14,14 +14,21 @@ public class EnemyCollision : MonoBehaviour
         _isDead = false;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    // private void OnCollisionEnter(Collision collision)
+    // {
+    //     if (!_isDead && collision.gameObject.CompareTag("Sword"))
+    //     {
+    //         Die();
+    //     }
+    // }
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (!_isDead && collision.gameObject.CompareTag("Sword"))
+        if (!_isDead && other.gameObject.CompareTag("Sword"))
         {
             Die();
         }
     }
-
     private void Die()
     {
         _isDead = true;

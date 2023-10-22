@@ -1384,8 +1384,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2645291, y: -0.27014038, z: 0.07746149, w: 0.9225228}
-  m_LocalPosition: {x: 147.7, y: 10, z: -13}
+  m_LocalRotation: {x: 0.24028966, y: -0.27207547, z: 0.0703635, w: 0.9291312}
+  m_LocalPosition: {x: 146.22, y: 7.58, z: -11.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1448,8 +1448,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1306100706}
-  offset: {x: 6.5, y: 7.3, z: -12}
-  smoothSpeed: 3
+  offset: {x: 6.5, y: 7.3, z: -13}
+  smoothSpeed: 4
+  damping: 0.2
 --- !u!114 &330585549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1457,7 +1458,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
   m_Name: 
@@ -8779,7 +8780,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -9113,9 +9114,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPoint: {fileID: 116765581}
-  moveSpeed: 1
-  horizontalInput: 1
-  verticalInput: 1
+  moveSpeed: 2
+  horizontalInput: 2
+  verticalInput: 2
 --- !u!114 &1214653633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9139,6 +9140,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab1de645edb1b4c4d80aec7733eeebf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1214653641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214653626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78f5c984670ac5b4a84b5d7c691d118e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
+--- !u!114 &1214653642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214653626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5427fd0591c8745b5b65ff4340cdf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1223907284
@@ -10328,7 +10354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee5a16f7a48eb55489b1fbe039c70b3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 30
+  moveSpeed: 40
   IsRunning: 0
   IsAttacking: 0
   attackDamage: 0
@@ -10368,7 +10394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f0c4eb5278c3b43b010da452e57047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 90
+  rotationSpeed: 20
   playerCamera: {fileID: 330585548}
 --- !u!114 &1452839953
 MonoBehaviour:
@@ -10866,6 +10892,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf5427fd0591c8745b5b65ff4340cdf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1693607164 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5972847634666106000, guid: 2aba2d37ea38d9c458d2479c00420216,
+    type: 3}
+  m_PrefabInstance: {fileID: 1042229632595725434}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1693607165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182178074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78f5c984670ac5b4a84b5d7c691d118e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 1693607164}
 --- !u!1 &1739097791 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1082271958561512970, guid: b0589a4973f5221479b03b0aaa7a4128,
@@ -12124,7 +12169,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0.12}
     GateFit: 2
     FocusDistance: 10
-    m_SensorSize: {x: 1, y: 1}
+    m_SensorSize: {x: 36, y: 24}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -12545,6 +12590,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1693607161}
+    - targetCorrespondingSourceObject: {fileID: 1101179858136050768, guid: 2aba2d37ea38d9c458d2479c00420216,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1693607165}
     - targetCorrespondingSourceObject: {fileID: 904172883664850699, guid: 2aba2d37ea38d9c458d2479c00420216,
         type: 3}
       insertIndex: -1
@@ -12828,6 +12877,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1214653637}
+    - targetCorrespondingSourceObject: {fileID: 8247250886133121029, guid: 75a29986ee1f7314e94ea423f2c5b803,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1214653641}
+    - targetCorrespondingSourceObject: {fileID: 8247250886133121029, guid: 75a29986ee1f7314e94ea423f2c5b803,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1214653642}
     - targetCorrespondingSourceObject: {fileID: 8192179326110425950, guid: 75a29986ee1f7314e94ea423f2c5b803,
         type: 3}
       insertIndex: -1

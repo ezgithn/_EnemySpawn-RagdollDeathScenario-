@@ -21,6 +21,7 @@ public class EnemyControl : MonoBehaviour
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>(); 
+        // _animator = GetComponent<Animator>();
     }
     
     public void Update()

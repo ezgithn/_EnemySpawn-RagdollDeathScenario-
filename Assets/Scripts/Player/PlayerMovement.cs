@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody _rb;
     private Animator _animator;
     
-    public float moveSpeed = 20f;
+    public float moveSpeed;
     private float IsGrounded;
     public bool IsRunning;
     public bool IsAttacking;

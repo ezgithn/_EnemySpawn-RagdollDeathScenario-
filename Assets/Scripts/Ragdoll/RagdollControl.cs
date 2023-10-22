@@ -7,7 +7,7 @@ public class RagdollControl : MonoBehaviour
     private Rigidbody[] rigidbodies;
     private Collider[] colliders;
 
-    private void Start()
+    private void Awake()
     {
         
         rigidbodies = GetComponentsInChildren<Rigidbody>();
